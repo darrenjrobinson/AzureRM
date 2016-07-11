@@ -24,9 +24,9 @@ Login-AzureRmAccount
 # something unique for you. Leave the last two characters in each.
 $URI       = 'https://raw.githubusercontent.com/darrenjrobinson/AzureRM/master/active-directory-new-domain-with-data/azuredeploy.json'
 $Location  = 'west us'
-$rgname    = 'mimdevlab'
-$saname    = 'mimdevstoragegrp'     # Lowercase required
-$addnsName = 'mim2016.iwanta.beer'     # Lowercase required
+$rgname    = 'mimdevlabrg'
+$saname    = 'mimdevlabsa'     # Lowercase required
+$addnsName = 'mimdevlabad'     # Lowercase required
 
 # Check that the public dns $addnsName is available
 if (Test-AzureRmDnsAvailability -DomainNameLabel $addnsName -Location $Location)
