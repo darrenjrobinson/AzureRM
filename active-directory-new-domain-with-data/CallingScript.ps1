@@ -22,11 +22,11 @@ Login-AzureRmAccount
 
 # Adjust the 'yournamehere' part of these three strings to
 # something unique for you. Leave the last two characters in each.
-$URI       = 'https://raw.githubusercontent.com/GoateePFE/AzureRM/master/active-directory-new-domain-with-data/azuredeploy.json'
-$Location  = 'east us'
-$rgname    = 'yournamehererg'
-$saname    = 'yournameheresa'     # Lowercase required
-$addnsName = 'yournameheread'     # Lowercase required
+$URI       = 'https://raw.githubusercontent.com/darrenjrobinson/AzureRM/master/active-directory-new-domain-with-data/azuredeploy.json'
+$Location  = 'west us'
+$rgname    = 'mimdevlab'
+$saname    = 'mimdevstoragegrp'     # Lowercase required
+$addnsName = 'mim2016.iwanta.beer'     # Lowercase required
 
 # Check that the public dns $addnsName is available
 if (Test-AzureRmDnsAvailability -DomainNameLabel $addnsName -Location $Location)
@@ -38,8 +38,8 @@ New-AzureRmResourceGroup -Name $rgname -Location $Location
 # Parameters for the template and configuration
 $MyParams = @{
     newStorageAccountName = $saname
-    location              = 'East US'
-    domainName            = 'alpineskihouse.com'
+    location              = 'West US'
+    domainName            = 'iwanta.beer'
     addnsName             = $addnsName
    }
 
@@ -48,7 +48,7 @@ $SplatParams = @{
     TemplateUri             = $URI 
     ResourceGroupName       = $rgname 
     TemplateParameterObject = $MyParams
-    Name                    = 'AlpineSkiHouseForest'
+    Name                    = 'MIM2016Forest'
    }
 
 # This takes ~30 minutes
